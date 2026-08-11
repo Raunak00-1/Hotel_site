@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#f4f4f0",
+                    "primary-fixed": "#ffdea5",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#775a19",
+                    "surface-dim": "#dbdad6",
+                    "on-secondary": "#ffffff",
+                    "primary": "#775a19",
+                    "inverse-surface": "#2f312e",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#cac6bd",
+                    "surface-bright": "#faf9f5",
+                    "on-tertiary-container": "#3b3b3b",
+                    "on-primary": "#ffffff",
+                    "outline": "#7f7667",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "on-tertiary-fixed": "#1b1c1c",
+                    "on-background": "#1b1c1a",
+                    "outline-variant": "#d1c5b4",
+                    "on-primary-container": "#4e3700",
+                    "on-secondary-container": "#67645c",
+                    "primary-fixed-dim": "#e9c176",
+                    "background": "#faf9f5",
+                    "surface-variant": "#e3e2df",
+                    "surface-container-highest": "#e3e2df",
+                    "on-primary-fixed-variant": "#5d4201",
+                    "on-surface-variant": "#4e4639",
+                    "on-surface": "#1b1c1a",
+                    "surface-container-high": "#e9e8e4",
+                    "tertiary": "#5f5e5e",
+                    "on-secondary-fixed": "#1d1c16",
+                    "secondary-fixed": "#e7e2d8",
+                    "tertiary-fixed-dim": "#c8c6c6",
+                    "tertiary-container": "#a7a5a5",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#e4e2e1",
+                    "secondary-container": "#e7e2d8",
+                    "surface-container": "#efeeea",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#c5a059",
+                    "inverse-primary": "#e9c176",
+                    "secondary": "#615e57",
+                    "surface": "#faf9f5",
+                    "on-secondary-fixed-variant": "#494740",
+                    "inverse-on-surface": "#f2f1ed",
+                    "on-primary-fixed": "#261900",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Playfair Display"],
+                    "label-md": ["Montserrat"],
+                    "display-lg": ["Playfair Display"],
+                    "caption": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "title-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Montserrat"]
+            },
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .curtain-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+        .curtain-reveal::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #faf9f5;
+            transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+            transform-origin: right;
+        }
+        .curtain-reveal.active::after {
+            transform: scaleX(0);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(250, 249, 245, 0.8);
+            transition: all 0.3s ease;
+        }
+        .nav-scrolled {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Shared Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 glass-nav border-b border-outline-variant/30 px-6 py-5 lg:px-16 flex items-center justify-between" id="main-nav">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="font-headline-md text-title-lg tracking-widest uppercase">Elysia</h2>
+</div>
+<div class="hidden lg:flex items-center gap-10 font-label-md text-caption uppercase tracking-[0.2em] text-on-surface/70">
+<a class="hover:text-primary transition-colors" href="#">Heritage</a>
+<a class="hover:text-primary transition-colors" href="#">Rooms</a>
+<a class="hover:text-primary transition-colors" href="#">Dining</a>
+<a class="hover:text-primary transition-colors" href="#">Wellness</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="hidden md:block bg-primary text-on-primary font-label-md px-8 py-3 rounded-none uppercase tracking-widest hover:bg-on-primary-container transition-all">
+                Book Now
+            </button>
+<div class="size-10 rounded-full border border-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sophisticated portrait of a professional hotel concierge in a tailored dark suit, standing in a brightly lit, elegant marble lobby. The lighting is soft and golden, emphasizing a high-end luxury hospitality atmosphere. The style is clean, modern, and high-contrast, reflecting the Elysia brand colors of gold and cream." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRDMgXDc4toC5t7fgNj-21LHow0TYTp9cJrOlIJQ5eiaF3kK5LYj5y2wxJK6ax_KIqyd6wnhzhGH0lKHWNEQOD1Uv7y-HRfJkPizrUKzaQCsUFRn0r4pGzfFqkmQxBRtzPoJiNrRj9ImlhQQU42sK-Hp59Q8Krru2qq_6rQplKa_Z_OZ4byD8XsGSE5lzOhj49DRM_eBQvZoGbx9CJw8QpWNDc10wdWFO-R62eAeX1l6yGpc_ljIPa"/>
+</div>
+</div>
+</nav>
+<!-- Enhanced Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0 parallax-bg" data-alt="A breathtaking wide-angle view of a luxury hotel facade at twilight. The architecture combines neoclassical heritage elements with sleek modern glass, illuminated by warm, amber architectural lighting. The sky is a deep indigo blue, creating a dramatic contrast. The overall mood is one of quiet, expensive elegance and historical significance." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB2EjWiozHX4rNgQ0iZrsXz3U1Dw0BnbOzkCTv3cIZeG8AnXW9-i5htOaeUsqhgij0T2mQJ7drUyVrUJA5jztA8NsugcJPrugIcE3mZgJuuNFqCYuBOeC8ReJzazZOSdnM25_rK6l5QebblFHeOSefRt3je0ujKpAJGTsZR9VP84kGwSrP2y_HfIzgp2z98FuWGkAx7sde8nELIBLeTT_NEpAeV6ATkAdQwYztrKUC4T9-V0Xrq0UvF')"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-background z-10"></div>
+<div class="relative z-20 text-center px-6 max-w-5xl">
+<span class="inline-block font-label-md text-white/80 tracking-[0.4em] uppercase mb-6 reveal">Est. 1924</span>
+<h1 class="font-display-lg text-white text-5xl md:text-8xl leading-none mb-8 reveal" style="transition-delay: 200ms;">
+                Experience <br/> <span class="italic font-light">Timeless</span> Elegance
+            </h1>
+<p class="font-body-lg text-white/90 max-w-2xl mx-auto mb-12 reveal" style="transition-delay: 400ms;">
+                A sanctuary of refined luxury and rich heritage, where every moment is curated with unparalleled grace and contemporary sophistication.
+            </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center items-center reveal" style="transition-delay: 600ms;">
+<button class="bg-primary text-on-primary font-label-md px-10 py-5 uppercase tracking-widest hover:scale-105 transition-transform">
+                    Explore Our Story
+                </button>
+<button class="border border-white text-white font-label-md px-10 py-5 uppercase tracking-widest hover:bg-white hover:text-on-background transition-all">
+                    View Suites
+                </button>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+<span class="material-symbols-outlined text-white text-3xl">keyboard_double_arrow_down</span>
+</div>
+</section>
+<!-- Heritage Expansion Section -->
+<section class="py-24 lg:py-40 px-6 lg:px-24 grid lg:grid-cols-2 gap-20 items-center bg-surface-container-lowest">
+<div class="reveal">
+<h2 class="font-label-md text-primary tracking-[0.3em] uppercase mb-4">Our Legacy</h2>
+<h3 class="font-headline-lg text-on-surface mb-8">A Century of Refinement</h3>
+<div class="space-y-6 text-on-surface-variant font-body-lg leading-relaxed">
+<p>Elysia began as a grand vision in 1924, designed to be the heartbeat of the city's high society. For a century, these walls have witnessed history, hosting icons, thinkers, and seekers of the extraordinary.</p>
+<p>Today, we preserve that storied past while embracing a vision of the future. Every column, every velvet drapery, and every warm greeting is an echo of our enduring commitment to the art of hospitality.</p>
+</div>
+<div class="mt-12 flex items-center gap-8">
+<div class="text-center">
+<span class="block font-display-lg text-4xl text-primary">100</span>
+<span class="font-label-md text-caption uppercase tracking-wider">Years</span>
+</div>
+<div class="w-px h-12 bg-outline-variant"></div>
+<div class="text-center">
+<span class="block font-display-lg text-4xl text-primary">42</span>
+<span class="font-label-md text-caption uppercase tracking-wider">Awards</span>
+</div>
+<div class="w-px h-12 bg-outline-variant"></div>
+<div class="text-center">
+<span class="block font-display-lg text-4xl text-primary">24/7</span>
+<span class="font-label-md text-caption uppercase tracking-wider">Devotion</span>
+</div>
+</div>
+</div>
+<div class="curtain-reveal">
+<img class="w-full aspect-[4/5] object-cover shadow-2xl" data-alt="A vintage-inspired black and white photograph of a grand ballroom during a 1920s gala, with men in tuxedos and women in flapper dresses. The scene is filtered with a soft, warm sepia grain to evoke nostalgia and luxury legacy. The Elysia branding colors are subtly reflected in the creamy highlights of the image." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtIdzHCCzb_ge_PuXx8yn1Pp2KFcaRbaem-zRQ_xAX8sidejOtmAUfa0wWcYJHMjhWD0I9pXBw8O-SPe0L5-KHJ_IT8QmaARSRo9HQ2UWf60lfWx4Bu2zOk2N6TKX6qof1LBWDcN4VpaCjc-2Bo6I3-tL4YVMlVDMn5MdkshkmlgDh234e1FmB3tJrCgfAH8fWqXUyR7bTIvHniKBdO4iQvmrjOS2J9i8Sr406NodaemQeWvJwy87W"/>
+</div>
+</section>
+<!-- Immersive Dining Section -->
+<section class="relative h-[819px] flex items-center justify-end overflow-hidden group">
+<div class="absolute inset-0">
+<img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="A close-up, artistically lit shot of a gourmet dish featuring delicate microgreens and edible flowers on a ceramic plate. The background is a dim, intimate fine-dining restaurant with soft candlelight and polished crystal glassware. The lighting is dramatic, high-contrast, and luxurious, favoring warm gold tones against dark charcoal shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAylfvA1NTi4iWN7cTF5ptXxOFXIEFggU5QbzLm-Xc7ClNURDZpDbeDzWE5RyLmQ5me3Enz6NotZmv6V0HTu2I8Ao8vpK6lhgaGuQBSJZJRbyGOLI4XoSURfSJzajkXe3EisMTX4LaP_F7iJvzvMBZ-dcEKV2e2fMH72GRwT9j8IImf6UKehKjc6I5w-p1CvQr-owLkE8OB_Hphd3z_9kQkBTFTCGFk6t92tUc1W0BS0Axrr_3oKXGr"/>
+</div>
+<div class="absolute inset-0 bg-black/40"></div>
+<div class="relative z-10 w-full lg:w-1/2 p-12 lg:p-24 bg-surface/90 backdrop-blur-md reveal">
+<h2 class="font-label-md text-primary tracking-[0.3em] uppercase mb-4">Epicurean Journeys</h2>
+<h3 class="font-headline-lg mb-6">The Taste of Pure Sophistication</h3>
+<p class="font-body-md text-on-surface-variant mb-10">From our signature Michelin-starred restaurant to the intimate jazz bar, our culinary offerings are a symphony of local flavors and global techniques, curated by world-class artisans.</p>
+<button class="bg-primary text-on-primary font-label-md px-10 py-5 uppercase tracking-widest hover:bg-on-primary-container transition-all">
+                View Seasonal Menu
+            </button>
+</div>
+</section>
+<!-- Wellness Sanctuary Section -->
+<section class="py-24 lg:py-40 bg-surface-bright px-6 lg:px-24">
+<div class="text-center max-w-3xl mx-auto mb-20 reveal">
+<h2 class="font-label-md text-primary tracking-[0.3em] uppercase mb-4">Sanctuary</h2>
+<h3 class="font-headline-lg mb-6">Wellness Redefined</h3>
+<p class="font-body-lg text-on-surface-variant italic">"A tranquil retreat designed to restore your mind, body, and soul in the heart of the bustling metropolis."</p>
+</div>
+<div class="grid lg:grid-cols-3 gap-8">
+<div class="space-y-8 reveal" style="transition-delay: 100ms;">
+<div class="curtain-reveal aspect-square overflow-hidden">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="An ethereal indoor swimming pool with turquoise water reflecting a high, vaulted ceiling. Large floor-to-ceiling windows allow soft, natural daylight to flood the space. Minimalist lounge chairs and lush tropical plants create a serene, spa-like atmosphere. The color palette is composed of soft blues, whites, and natural wood tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSgvvkQa72-LKfwxEP6i3fiXVTUi77KYmbe4vRIwv_dl9K7GrN5uXkUiQGDC98gU9uPh4oRQae7nMP4fj9383gkm0DYuG2zX69h-BrQmcOZf7fozmjm-gV2rANJ4CRLaLiDOAYU29VWRLTa2b4rePfA29p3KbDzmeUH3rPz23tFi2xf7-Ukr46MtSSmMitdwpAiOq2Zux6ZUDQPB69fY1rk7aGML01eU2h_Ul-8leLCLYypOCWS0T-"/>
+</div>
+<div>
+<h4 class="font-title-lg mb-3">Hydrotherapy Circuit</h4>
+<p class="text-on-surface-variant">Healing waters and temperature-controlled pools designed to invigorate the circulation and soothe muscles.</p>
+</div>
+</div>
+<div class="space-y-8 reveal lg:mt-20" style="transition-delay: 300ms;">
+<div class="curtain-reveal aspect-square overflow-hidden">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="A serene spa treatment room with two massage tables, lit by soft candle glows. There are aromatic oils, smooth river stones, and fresh white towels arranged neatly. The room has a minimalist aesthetic with neutral earth tones and organic textures, promoting a feeling of deep peace and luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1nL56icuodu2tg20mupE0WqBI5EQOjNS-Mdp204uTwAYcUp-dDykvRw5gkEIvd4lUlCDvZ4hBfgfNSuV_LI0WFZZpjKAdM2aVOzuBP-3nGbCVsE9S4W24HJ8N9SwgSJaxHk9eZS3FZg5pMo-3CKSycY0_LYIJ3zCRZgqcwty_GJgs_ezw4lcOgJtImMDGzQsbeYSym1UdiZL1notf-hmzp9iSovW14p9Zf1Q9NUIx9OSX23be4CiK"/>
+</div>
+<div>
+<h4 class="font-title-lg mb-3">Signature Rituals</h4>
+<p class="text-on-surface-variant">Bespoke holistic treatments using rare botanical essences and traditional healing techniques.</p>
+</div>
+</div>
+<div class="space-y-8 reveal" style="transition-delay: 500ms;">
+<div class="curtain-reveal aspect-square overflow-hidden">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" data-alt="A bright, airy yoga studio with polished light wood floors and a wall of mirrors. A single yoga mat is placed in the center, with a view of a Japanese-style Zen garden through the window. The atmosphere is quiet and focused, with high-key lighting and a palette of creams and light greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSUdSwcuvQbOBdFjoQbE6x5VFyTP0VOyjFhJXxkkApzF-nPRk0PRvaxUbVeKu2N2LaLquWubJ_GQex0KGjY7R1PpdFH_iS9Uv9vagFm6qUVGoplXn7k69tLuv2ICSlUXHQ3j_PgIwBiE2kTB-3DAyx61IHBas9Grh7A0sDkR-Ipk3qRVCQk1b3GVXJDgIhNDD71Xq3AMqsetUrl9T-tR2My7I3f66Cz6FiMxg3EZ3ZSrkc-qpxphuV"/>
+</div>
+<div>
+<h4 class="font-title-lg mb-3">Zen Pavilion</h4>
+<p class="text-on-surface-variant">A dedicated space for meditation, yoga, and private mindfulness sessions led by resident masters.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Social & Contact Hub -->
+<section class="py-24 bg-surface-container-low border-t border-outline-variant/20">
+<div class="px-6 lg:px-24">
+<div class="flex flex-col lg:flex-row justify-between items-end mb-16 reveal">
+<div class="max-w-xl">
+<h2 class="font-label-md text-primary tracking-[0.3em] uppercase mb-4">Connect</h2>
+<h3 class="font-headline-lg">Stay in the Elysia Loop</h3>
+</div>
+<div class="mt-8 lg:mt-0">
+<a class="font-label-md text-primary border-b border-primary pb-2 hover:text-on-primary-container hover:border-on-primary-container transition-all" href="#">@ELYSIA_HERITAGE</a>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24 reveal">
+<div class="aspect-square bg-surface-dim overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A lifestyle Instagram-style shot of a silver tray with a morning coffee, a croissant, and a fresh white rose, placed on a crisp white bedsheet. Morning sunlight creates soft shadows. The aesthetic is clean, minimalist, and very high-end luxury lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0F1n3nH1Vvs91UYMKZF9tIQJxVOu_V5AzpslV1m6pufAdwlrBFzb_ecOKbeCVxw_evXrwUPpWwqnpvc7cp5R606tMtoG39b8nrzIMPtwIvLFvfbP3LtHkRviMWjjFvE9lJI3PyP1oqXghouzOru3U4HYRArmCa-jlqEiiNAJsx0YKSY7J_eS408Ai5vImDdt2m3rJWMVMH2AQt4hzwsPvd8Wm46BZu789LHnh8tHmuvYpnG1wqd9c"/>
+</div>
+<div class="aspect-square bg-surface-dim overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="An architectural detail of a golden spiral staircase in a luxury hotel. The lighting is dramatic, highlighting the metallic sheen and the elegant curves. The mood is opulent and grand, reflecting the Elysia heritage theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxyk8ZFLFLtUN_Rap67nFMq1WPIVB5-rHV9KGpbkLjkA49t7oNPAI5-VC3VeTS4gV3l2seDm21zwNvXkta_lhrft-wT8qZOpCIMyAeDs0AJtxkctp2Y6HKJVRQxIiLBYfVdbmBKHK4Y5eCDlgHMQP4oxW0oIKdG_qktXdn3GdRpOFqN3bH7T9I_dw9oqAxkO5TAPc3YUnjV_BIZ6YvM4BPwHs_cgf7kloTjZ_Prp0bMLx3HMAqw02r"/>
+</div>
+<div class="aspect-square bg-surface-dim overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A stylish couple enjoying cocktails at a dimly lit, sophisticated hotel bar. The man is in a smart blazer and the woman in a cocktail dress. The lighting is warm and amber, creating an atmosphere of exclusive nightlife." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS8KqR2TlpRn8wbEjny2DOmH27u3TYookIrIMwb2OXuycLrlHD3qBPZkqKjy-HAiYKK7X2UfJWqQv8ZamjMKCga3kEsgBmTVjdk3JJl2qiX7pBnp_iDAtiLULeQdkKdWgtVSnuxMst-XGkgcR_53Kprg0OXt97PMevPBi47ujKSy8vfYCkq2nDV2N_B8DTLDs-7Kb_EW0QcdUwWng-jIu1IK8_QDwsIhQ-aMJGUnau3bpG01nMp_q3"/>
+</div>
+<div class="aspect-square bg-surface-dim overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A wide landscape shot of the hotel garden at sunset, with perfectly manicured lawns and classical statues. The sky is a gradient of orange and purple. The overall feeling is one of peace and classical beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsS1--plsarGa7BJ88SF5T-u0BwwDwrcogu1Tr-38j4ikU-T8OkppS8Z6FdFHyw-V36YotNcfUQ0RWTlU7YI8CVT5cobx4_K0ln9wD1ygmnAiGxStik27bTlPq2ZSGSFmiJF09wUPmZSCzVYocT935ZHmSVMqqxjxibYQcpt8Y0HT248rYaeaEq_2H0aef9dwjxNz8P2mNQf5njGRLTPyEhOxfEDp8NPZDqhckBaredArqTfQm1mA9"/>
+</div>
+</div>
+<div class="grid lg:grid-cols-3 gap-12 bg-white p-12 lg:p-20 shadow-xl reveal">
+<div>
+<h4 class="font-label-md text-caption uppercase tracking-widest text-primary mb-6">Reservations</h4>
+<p class="font-headline-md text-2xl mb-4">+1 (800) 555-ELYSIA</p>
+<p class="text-on-surface-variant font-body-md">stay@elysia-hotel.com</p>
+</div>
+<div>
+<h4 class="font-label-md text-caption uppercase tracking-widest text-primary mb-6">Concierge</h4>
+<p class="font-headline-md text-2xl mb-4">Chat with us</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">chat_bubble</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">send</span>
+</div>
+</div>
+<div>
+<h4 class="font-label-md text-caption uppercase tracking-widest text-primary mb-6">Location</h4>
+<p class="font-body-md text-on-surface-variant">124 Heritage Blvd, <br/>London, W1J 7BR</p>
+<a class="inline-block mt-4 text-primary font-label-md uppercase tracking-wider text-caption hover:underline" href="#">Get Directions</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-on-surface text-surface py-20 px-6 lg:px-24">
+<div class="flex flex-col lg:flex-row justify-between gap-12 mb-20 border-b border-surface/10 pb-20">
+<div class="max-w-sm">
+<div class="flex items-center gap-3 mb-8">
+<div class="size-8 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="font-headline-md text-title-lg tracking-widest uppercase">Elysia</h2>
+</div>
+<p class="text-surface-dim font-body-md">Redefining luxury since 1924. A part of the Global Heritage Collection.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-10">
+<div class="flex flex-col gap-4">
+<span class="font-label-md text-caption uppercase tracking-widest text-primary mb-2">Explore</span>
+<a class="text-surface-dim hover:text-white transition-colors" href="#">History</a>
+<a class="text-surface-dim hover:text-white transition-colors" href="#">Careers</a>
+<a class="text-surface-dim hover:text-white transition-colors" href="#">Press Room</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-md text-caption uppercase tracking-widest text-primary mb-2">Legal</span>
+<a class="text-surface-dim hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="text-surface-dim hover:text-white transition-colors" href="#">Terms of Use</a>
+<a class="text-surface-dim hover:text-white transition-colors" href="#">Accessibility</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-md text-caption uppercase tracking-widest text-primary mb-2">Social</span>
+<a class="text-surface-dim hover:text-white transition-colors" href="#">Instagram</a>
+<a class="text-surface-dim hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="text-surface-dim hover:text-white transition-colors" href="#">Twitter</a>
+</div>
+</div>
+</div>
+<div class="text-center text-surface-dim/40 text-caption font-label-md tracking-widest">
+            © 2024 ELYSIA HOTELS &amp; RESORTS. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+<!-- Floating Actions -->
+<div class="fixed bottom-8 right-8 z-[60] flex flex-col gap-4">
+<button class="float-btn size-14 bg-green-600 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+<button class="float-btn size-14 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform" style="animation-delay: 0.5s;">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</button>
+</div>
+<script>
+        // Scroll Animations
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll(".reveal, .curtain-reveal");
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add("active");
+                }
+            });
+        }
+
+        // Navbar Scroll Effect
+        function handleNav() {
+            const nav = document.getElementById("main-nav");
+            if (window.scrollY > 50) {
+                nav.classList.add("nav-scrolled");
+            } else {
+                nav.classList.remove("nav-scrolled");
+            }
+        }
+
+        window.addEventListener("scroll", () => {
+            revealOnScroll();
+            handleNav();
+        });
+
+        // Initialize
+        revealOnScroll();
+        handleNav();
+    </script>
+</body></html>

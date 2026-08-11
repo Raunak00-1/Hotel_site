@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Elysia Luxe Horizon Resort | Refined Luxury & Timeless Elegance</title>
+    <meta name="description" content="A sanctuary of refined luxury and rich heritage since 1924. Experience luxury suites, fine dining, and wellness sanctuary at Elysia Luxe Horizon Resort."/>
+    
+    <!-- Tailwind CSS with custom config -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "surface-container-low": "#f4f4f0",
+              "primary-fixed": "#ffdea5",
+              "on-error-container": "#93000a",
+              "surface-tint": "#775a19",
+              "surface-dim": "#dbdad6",
+              "on-secondary": "#ffffff",
+              "primary": "#775a19",
+              "inverse-surface": "#2f312e",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#cac6bd",
+              "surface-bright": "#faf9f5",
+              "on-tertiary-container": "#3b3b3b",
+              "on-primary": "#ffffff",
+              "outline": "#7f7667",
+              "on-tertiary-fixed-variant": "#474747",
+              "on-tertiary-fixed": "#1b1c1c",
+              "on-background": "#1b1c1a",
+              "outline-variant": "#d1c5b4",
+              "on-primary-container": "#4e3700",
+              "on-secondary-container": "#67645c",
+              "primary-fixed-dim": "#e9c176",
+              "background": "#faf9f5",
+              "surface-variant": "#e3e2df",
+              "surface-container-highest": "#e3e2df",
+              "on-primary-fixed-variant": "#5d4201",
+              "on-surface-variant": "#4e4639",
+              "on-surface": "#1b1c1a",
+              "surface-container-high": "#e9e8e4",
+              "tertiary": "#5f5e5e",
+              "on-secondary-fixed": "#1d1c16",
+              "secondary-fixed": "#e7e2d8",
+              "tertiary-fixed-dim": "#c8c6c6",
+              "tertiary-container": "#a7a5a5",
+              "on-tertiary": "#ffffff",
+              "error": "#ba1a1a",
+              "tertiary-fixed": "#e4e2e1",
+              "secondary-container": "#e7e2d8",
+              "surface-container": "#efeeea",
+              "error-container": "#ffdad6",
+              "primary-container": "#c5a059",
+              "inverse-primary": "#e9c176",
+              "secondary": "#615e57",
+              "surface": "#faf9f5",
+              "on-secondary-fixed-variant": "#494740",
+              "inverse-on-surface": "#f2f1ed",
+              "on-primary-fixed": "#261900",
+              "on-error": "#ffffff"
+            },
+            "borderRadius": {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            "fontFamily": {
+              "headline-md": ["Playfair Display", "serif"],
+              "label-md": ["Montserrat", "sans-serif"],
+              "display-lg": ["Playfair Display", "serif"],
+              "caption": ["Montserrat", "sans-serif"],
+              "body-lg": ["Montserrat", "sans-serif"],
+              "display-lg-mobile": ["Playfair Display", "serif"],
+              "headline-lg": ["Playfair Display", "serif"],
+              "title-lg": ["Montserrat", "sans-serif"],
+              "headline-lg-mobile": ["Playfair Display", "serif"],
+              "body-md": ["Montserrat", "sans-serif"]
+            },
+          },
+        }
+      }
+    </script>
+
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /* Ken Burns Slow Motion Zoom */
+        @keyframes kenburns {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+        .hero-bg-anim {
+            animation: kenburns 24s ease-in-out infinite alternate;
+        }
+        /* Gold Shimmer Animated Text */
+        @keyframes goldShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .text-gold-shimmer {
+            background: linear-gradient(120deg, #ffdea5 0%, #ffffff 25%, #c5a059 50%, #ffdea5 75%, #ffffff 100%);
+            background-size: 250% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: goldShimmer 6s ease infinite;
+        }
+        /* Font Hover Transitions */
+        .font-hover-expand {
+            transition: letter-spacing 0.4s ease, color 0.4s ease, transform 0.4s ease;
+        }
+        .font-hover-expand:hover {
+            letter-spacing: 0.35em !important;
+        }
+        .heading-hover-glow {
+            transition: text-shadow 0.4s ease, transform 0.4s ease;
+        }
+        .heading-hover-glow:hover {
+            text-shadow: 0 0 25px rgba(197, 160, 89, 0.45);
+        }
+        /* Button Sweep Shine Effect */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            transition: left 0.7s ease-in-out;
+        }
+        .btn-shine:hover::before {
+            left: 120%;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .curtain-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+        .curtain-reveal::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #faf9f5;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+            transform-origin: right;
+            z-index: 5;
+        }
+        .curtain-reveal.active::after {
+            transform: scaleX(0);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background-color: rgba(250, 249, 245, 0.85);
+            transition: all 0.3s ease;
+        }
+        .nav-scrolled {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            background-color: rgba(250, 249, 245, 0.95);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #faf9f5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c5a059;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #775a19;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden relative">
+
+<!-- Shared Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 glass-nav border-b border-outline-variant/30 px-6 py-5 lg:px-16 flex items-center justify-between" id="main-nav">
+    <a href="#" class="flex items-center gap-3 text-primary group">
+        <div class="size-8 transition-transform group-hover:rotate-45 duration-500">
+            <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z" fill-rule="evenodd"></path>
+            </svg>
+        </div>
+        <h2 class="font-headline-md text-title-lg tracking-widest uppercase font-semibold">Elysia</h2>
+    </a>
+    
+    <!-- Desktop Navigation Links -->
+    <div class="hidden lg:flex items-center gap-10 font-label-md text-caption uppercase tracking-[0.2em] text-on-surface/80 font-medium">
+        <a class="hover:text-primary transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all" href="#heritage">Heritage</a>
+        <a class="hover:text-primary transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all" href="#suites">Suites</a>
+        <a class="hover:text-primary transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all" href="#dining">Dining</a>
+        <a class="hover:text-primary transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all" href="#wellness">Wellness</a>
+        <a class="hover:text-primary transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all" href="#contact">Contact</a>
+    </div>
+
+    <!-- Actions & Concierge Avatar -->
+    <div class="flex items-center gap-6">
+        <button onclick="openBookingModal()" class="hidden md:block bg-primary text-on-primary font-label-md px-8 py-3 rounded-none uppercase tracking-widest hover:bg-on-primary-container transition-all shadow-md hover:shadow-lg active:scale-95">
+            Book Now
+        </button>
+        <button onclick="toggleConciergeChat()" class="size-10 rounded-full border border-outline-variant overflow-hidden cursor-pointer hover:border-primary transition-all relative group" title="Chat with Senior Concierge">
+            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Hotel Concierge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRDMgXDc4toC5t7fgNj-21LHow0TYTp9cJrOlIJQ5eiaF3kK5LYj5y2wxJK6ax_KIqyd6wnhzhGH0lKHWNEQOD1Uv7y-HRfJkPizrUKzaQCsUFRn0r4pGzfFqkmQxBRtzPoJiNrRj9ImlhQQU42sK-Hp59Q8Krru2qq_6rQplKa_Z_OZ4byD8XsGSE5lzOhj49DRM_eBQvZoGbx9CJw8QpWNDc10wdWFO-R62eAeX1l6yGpc_ljIPa"/>
+            <span class="absolute bottom-0 right-0 size-2.5 bg-emerald-500 rounded-full border border-white"></span>
+        </button>
+        <!-- Mobile Menu Hamburger -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden text-on-surface hover:text-primary focus:outline-none" aria-label="Toggle Navigation Menu">
+            <span class="material-symbols-outlined text-3xl" id="mobile-menu-icon">menu</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-menu" class="fixed inset-0 bg-background/95 backdrop-blur-xl z-40 flex flex-col justify-center items-center gap-8 hidden transition-all duration-300 opacity-0">
+    <a onclick="toggleMobileMenu()" href="#heritage" class="font-headline-md text-2xl uppercase tracking-widest text-on-surface hover:text-primary transition-colors">Heritage</a>
+    <a onclick="toggleMobileMenu()" href="#suites" class="font-headline-md text-2xl uppercase tracking-widest text-on-surface hover:text-primary transition-colors">Suites</a>
+    <a onclick="toggleMobileMenu()" href="#dining" class="font-headline-md text-2xl uppercase tracking-widest text-on-surface hover:text-primary transition-colors">Dining</a>
+    <a onclick="toggleMobileMenu()" href="#wellness" class="font-headline-md text-2xl uppercase tracking-widest text-on-surface hover:text-primary transition-colors">Wellness</a>
+    <a onclick="toggleMobileMenu()" href="#contact" class="font-headline-md text-2xl uppercase tracking-widest text-on-surface hover:text-primary transition-colors">Contact</a>
+    <button onclick="toggleMobileMenu(); openBookingModal();" class="mt-4 bg-primary text-on-primary font-label-md px-10 py-4 uppercase tracking-widest">
+        Book Now
+    </button>
+</div>
+
+<!-- Enhanced Hero Section with Dynamic Background & Premium Animations -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <!-- Hero Background Image Slider Containers -->
+    <div id="hero-bg-1" class="absolute inset-0 z-0 parallax-bg hero-bg-anim transition-opacity duration-1000 opacity-100" style="background-image: url('hero_luxury_resort.png')"></div>
+    <div id="hero-bg-2" class="absolute inset-0 z-0 parallax-bg hero-bg-anim transition-opacity duration-1000 opacity-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB2EjWiozHX4rNgQ0iZrsXz3U1Dw0BnbOzkCTv3cIZeG8AnXW9-i5htOaeUsqhgij0T2mQJ7drUyVrUJA5jztA8NsugcJPrugIcE3mZgJuuNFqCYuBOeC8ReJzazZOSdnM25_rK6l5QebblFHeOSefRt3je0ujKpAJGTsZR9VP84kGwSrP2y_HfIzgp2z98FuWGkAx7sde8nELIBLeTT_NEpAeV6ATkAdQwYztrKUC4T9-V0Xrq0UvF')"></div>
+    <div id="hero-bg-3" class="absolute inset-0 z-0 parallax-bg hero-bg-anim transition-opacity duration-1000 opacity-0" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSgvvkQa72-LKfwxEP6i3fiXVTUi77KYmbe4vRIwv_dl9K7GrN5uXkUiQGDC98gU9uPh4oRQae7nMP4fj9383gkm0DYuG2zX69h-BrQmcOZf7fozmjm-gV2rANJ4CRLaLiDOAYU29VWRLTa2b4rePfA29p3KbDzmeUH3rPz23tFi2xf7-Ukr46MtSSmMitdwpAiOq2Zux6ZUDQPB69fY1rk7aGML01eU2h_Ul-8leLCLYypOCWS0T-')"></div>
+    
+    <!-- Gradient Overlay with reduced opacity -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-background/70 z-10"></div>
+    
+    <!-- Hero Content Box -->
+    <div class="relative z-20 text-center px-6 max-w-5xl">
+        <span class="inline-block font-label-md text-primary-fixed tracking-[0.45em] uppercase mb-6 reveal text-xs md:text-sm border-b border-primary-fixed/40 pb-2 font-hover-expand cursor-default">
+            ✦ Est. 1924 • Global Heritage Collection ✦
+        </span>
+        <h1 class="font-display-lg text-white text-5xl sm:text-7xl md:text-8xl leading-tight mb-8 reveal heading-hover-glow" style="transition-delay: 200ms;">
+            Experience <br/> <span class="italic font-light text-gold-shimmer">Timeless</span> Elegance
+        </h1>
+        <p class="font-body-lg text-white/90 max-w-2xl mx-auto mb-12 reveal text-base md:text-lg leading-relaxed font-light font-hover-expand" style="transition-delay: 400ms;">
+            A sanctuary of refined luxury and rich heritage, where every moment is curated with unparalleled grace and contemporary sophistication.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center reveal" style="transition-delay: 600ms;">
+            <button onclick="openBookingModal()" class="btn-shine bg-primary text-on-primary font-label-md px-10 py-5 uppercase tracking-widest hover:scale-105 hover:bg-primary-container transition-all duration-300 shadow-2xl active:scale-95 font-semibold text-xs md:text-sm">
+                Reserve Your Stay
+            </button>
+            <button onclick="openStoryModal()" class="btn-shine border border-white/80 text-white font-label-md px-10 py-5 uppercase tracking-widest hover:bg-white hover:text-on-background transition-all duration-300 backdrop-blur-xs font-semibold text-xs md:text-sm">
+                Explore Our Story
+            </button>
+        </div>
+    </div>
+    
+    <!-- Hero Background Slider Navigation Indicators -->
+    <div class="absolute bottom-12 right-12 z-20 hidden md:flex items-center gap-3">
+        <button onclick="switchHeroSlide(1)" id="hero-dot-1" class="size-3 rounded-full bg-white transition-all duration-300 scale-125 shadow-lg" aria-label="Slide 1"></button>
+        <button onclick="switchHeroSlide(2)" id="hero-dot-2" class="size-2.5 rounded-full bg-white/40 hover:bg-white transition-all duration-300" aria-label="Slide 2"></button>
+        <button onclick="switchHeroSlide(3)" id="hero-dot-3" class="size-2.5 rounded-full bg-white/40 hover:bg-white transition-all duration-300" aria-label="Slide 3"></button>
+    </div>
+
+    <!-- Scroll Down Arrow -->
+    <a href="#heritage" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce cursor-pointer text-white/80 hover:text-white transition-colors" aria-label="Scroll Down to Heritage">
+        <span class="material-symbols-outlined text-4xl">keyboard_double_arrow_down</span>
+    </a>
+</section>
+
+<!-- Heritage Expansion Section -->
+<section id="heritage" class="py-24 lg:py-40 px-6 lg:px-24 grid lg:grid-cols-2 gap-20 items-center bg-surface-container-lowest relative">
+    <div class="reveal">
+        <h2 class="font-label-md text-primary tracking-[0.3em] uppercase mb-4 text-sm font-semibold">Our Legacy</h2>
+        <h3 class="font-headline-lg text-4xl lg:text-5xl text-on-surface mb-8">A Century of Refinement</h3>
+        <div class="space-y-6 text-on-surface-variant font-body-lg leading-relaxed">
+            <p>Elysia began as a grand vision in 1924, designed to be the heartbeat of the city's high society. For a century, these walls have witnessed history, hosting icons, thinkers, and seekers of the extraordinary.</p>
+            <p>Today, we preserve that storied past while embracing a vision of the future. Every column, every velvet drapery, and every warm greeting is an echo of our enduring commitment to the art of hospitality.</p>
+        </div>
+        
+        <div class="mt-12 flex items-center justify-between sm:justify-start gap-8 sm:gap-12">
+            <div class="text-center sm:text-left">
+                <span class="block font-display-lg text-4xl lg:text-5xl text-primary font-bold count-up" data-target="100">100</span>
+                <span class="font-label-md text-caption uppercase tracking-wider text-on-surface-variant">Years</span>
+            </div>
+            <div class="w-px h-14 bg-outline-variant/60"></div>
+            <div class="text-center sm:text-left">
+                <span class="block font-display-lg text-4xl lg:text-5xl text-primary font-bold count-up" data-target="42">42</span>
+                <span class="font-label-md text-caption uppercase tracking-wider text-on-surface-variant">Awards</span>
+            </div>
+            <div class="w-px h-14 bg-outline-variant/60"></div>
+            <div class="text-center sm:text-left">
+                <span class="block font-display-lg text-4xl lg:text-5xl text-primary font-bold">24/7</span>
+                <span class="font-label-md text-caption uppercase tracking-wider text-on-surface-variant">Devotion</span>
+            </div>
+        </div>
+
+        <button onclick="openStoryModal()" class="mt-10 inline-flex items-center gap-3 font-label-md text-primary tracking-widest uppercase text-sm group">
+            <span>Read Complete History</span>
+            <span class="material-symbols-outlined text-lg group-hover:translate-x-2 transition-transform">arrow_forward</span>
+        </button>
+    </div>
+
+    <div class="curtain-reveal rounded-none shadow-2xl">
+        <img class="w-full aspect-[4/5] object-cover shadow-2xl hover:scale-105 transition-transform duration-700" alt="1920s Grand Gala Event at Elysia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtIdzHCCzb_ge_PuXx8yn1Pp2KFcaRbaem-zRQ_xAX8sidejOtmAUfa0wWcYJHMjhWD0I9pXBw8O-SPe0L5-KHJ_IT8QmaARSRo9HQ2UWf60lfWx4Bu2zOk2N6TKX6qof1LBWDcN4VpaCjc-2Bo6I3-tL4YVMlVDMn5MdkshkmlgDh234e1FmB3tJrCgfAH8fWqXUyR7bTIvHniKBdO4iQvmrjOS2J9i8Sr406NodaemQeWvJwy87W"/>
+    </div>
+</section>
+
+<!-- Suites & Accommodation Interactive Showcase -->
+<section id="suites" class="py-24 lg:py-36 bg-surface-container-low px-6 lg:px-24">
+    <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <h2 class="font-label-md text-primary tracking-[0.3em] uppercase mb-4 text-sm font-semibold">Accommodations</h2>
+        <h3 class="font-headline-lg text-4xl lg:text-5xl mb-6">Suites & Sanctuaries</h3>
+        <p class="font-body-lg text-on-surface-variant">Immerse yourself in understated grandeur with handcrafted furnishings, private balconies, and sweeping panoramic views.</p>
+    </div>
+
+    <!-- Suite Filter Tabs -->
+    <div class="flex justify-center gap-4 mb-14 flex-wrap reveal">
+        <button onclick="filterSuites('all')" class="suite-tab active font-label-md px-6 py-2.5 text-xs uppercase tracking-widest border border-primary bg-primary text-on-primary transition-all">All Accommodations</button>
+        <button onclick="filterSuites('villa')" class="suite-tab font-label-md px-6 py-2.5 text-xs uppercase tracking-widest border border-outline-variant hover:border-primary text-on-surface transition-all">Oceanfront Villas</button>
+        <button onclick="filterSuites('penthouse')" class="suite-tab font-label-md px-6 py-2.5 text-xs uppercase tracking-widest border border-outline-variant hover:border-primary text-on-surface transition-all">Royal Penthouses</button>
+        <button onclick="filterSuites('heritage')" class="suite-tab font-label-md px-6 py-2.5 text-xs uppercase tracking-widest border border-outline-variant hover:border-primary text-on-surface transition-all">Heritage Suites</button>
+    </div>
+
+    <!-- Suite Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- Suite Card 1 -->
+        <div class="suite-card villa bg-surface-container-lowest shadow-lg overflow-hidden group reveal" style="transition-delay: 100ms;">
+            <div class="relative overflow-hidden aspect-[4/3]">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2EjWiozHX4rNgQ0iZrsXz3U1Dw0BnbOzkCTv3cIZeG8AnXW9-i5htOaeUsqhgij0T2mQJ7drUyVrUJA5jztA8NsugcJPrugIcE3mZgJuuNFqCYuBOeC8ReJzazZOSdnM25_rK6l5QebblFHeOSefRt3je0ujKpAJGTsZR9VP84kGwSrP2y_HfIzgp2z98FuWGkAx7sde8nELIBLeTT_NEpAeV6ATkAdQwYztrKUC4T9-V0Xrq0UvF" alt="The Presidential Ocean Villa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
+                <span class="absolute top-4 right-4 bg-primary text-on-primary font-label-md text-[10px] uppercase tracking-widest px-3 py-1">Featured</span>
+            </div>
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-3">
+                    <h4 class="font-headline-md text-2xl">The Horizon Ocean Villa</h4>
+                    <span class="font-display-lg text-xl text-primary font-bold">$1,250<span class="text-xs font-normal text-on-surface-variant">/night</span></span>
+                </div>
+                <p class="text-on-surface-variant font-body-md text-sm mb-6">180m² sanctuary with infinity plunge pool, private butler service, and direct oceanfront terrace.</p>
+                <div class="flex items-center gap-4 text-xs text-on-surface-variant mb-6 pb-6 border-b border-outline-variant/30">
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base text-primary">king_bed</span> King Bed</span>
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base text-primary">pool</span> Private Pool</span>
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base text-primary">group</span> 4 Guests</span>
+                </div>
+                <button onclick="openBookingModal('Horizon Ocean Villa')" class="w-full border border-primary text-primary font-label-md py-3 uppercase tracking-widest text-xs hover:bg-primary hover:text-on-primary transition-all">
+                    Reserve Villa
+                </button>
+            </div>
+        </div>
+
+        <!-- Suite Card 2 -->
+        <div class="suite-card penthouse bg-surface-container-lowest shadow-lg overflow-hidden group reveal" style="transition-delay: 200ms;">
+            <div class="relative overflow-hidden aspect-[4/3]">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxyk8ZFLFLtUN_Rap67nFMq1WPIVB5-rHV9KGpbkLjkA49t7oNPAI5-VC3VeTS4gV3l2seDm21zwNvXkta_lhrft-wT8qZOpCIMyAeDs0AJtxkctp2Y6HKJVRQxIiLBYfVdbmBKHK4Y5eCDlgHMQP4oxW0oIKdG_qktXdn3GdRpOFqN3bH7T9I_dw9oqAxkO5TAPc3YUnjV_BIZ6YvM4BPwHs_cgf7kloTjZ_Prp0bMLx3HMAqw02r" alt="Royal Skyline Penthouse" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
+            </div>
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-3">
+                    <h4 class="font-headline-md text-2xl">Royal Skyline Penthouse</h4>
+                    <span class="font-display-lg text-xl text-primary font-bold">$2,800<span class="text-xs font-normal text-on-surface-variant">/night</span></span>
+                </div>
+                <p class="text-on-surface-variant font-body-md text-sm mb-6">Top-floor luxury residence with 360-degree skyline views, personal cellar, and private rooftop lounge.</p>
+                <div class="flex items-center gap-4 text-xs text-on-surface-variant mb-6 pb-6 border-b border-outline-variant/30">
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base text-primary">king_bed</span> 2 King Beds</span>
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base text-primary">wine_bar</span> Wine Cellar</span>
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base text-primary">group</span> 6 Guests</span>
+                </div>
+                <button onclick="openBookingModal('Royal Skyline Penthouse')" class="w-full border border-primary text-primary font-label-md py-3 uppercase tracking-widest text-xs hover:bg-primary hover:text-on-primary transition-all">
+                    Reserve Penthouse
+                </button>
+            </div>
+        </div>
+
+        <!-- Suite Card 3 -->
+        <div class="suite-card heritage bg-surface-container-lowest shadow-lg overflow-hidden group reveal" style="transition-delay: 300ms;">
+            <div class="relative overflow-hidden aspect-[4/3]">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtIdzHCCzb_ge_PuXx8yn1Pp2KFcaRbaem-zRQ_xAX8sidejOtmAUfa0wWcYJHMjhWD0I9pXBw8O-SPe0L5-KHJ_IT8QmaARSRo9HQ2UWf60lfWx4Bu2zOk2N6TKX6qof1LBWDcN4VpaCjc-2Bo6I3-tL4YVMlVDMn5MdkshkmlgDh234e1FmB3tJrCgfAH8fWqXUyR7bTIvHniKBdO4iQvmrjOS2J9i8Sr406NodaemQeWvJwy87W" alt="The 1924 Heritage Suite" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"/>
+            </div>
+            <div class="p-8">
+                <div class="flex justify-between items-start mb-3">
+                    <h4 class="font-headline-md text-2xl">The 1924 Heritage Suite</h4>
+                    <span class="font-display-lg text-xl text-primary font-bold">$850<span class="text-xs font-normal text-on-surface-variant">/night</span></span>
+                </div>
+                <p class="text-on-surface-variant font-body-md text-sm mb-6">Restored historical suite featuring original 1920s architecture, marble fireplace, and mahogany library.</p>
+                <div class="flex items-center gap-4 text-xs text-on-surface-variant mb-6 pb-6 border-b border-outline-variant/30">
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base text-primary">king_bed</span> King Bed</span>
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base text-primary">fireplace</span> Fireplace</span>
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base text-primary">group</span> 2 Guests</span>
+                </div>
+                <button onclick="openBookingModal('The 1924 Heritage Suite')" class="w-full border border-primary text-primary font-label-md py-3 uppercase tracking-widest text-xs hover:bg-primary hover:text-on-primary transition-all">
+                    Reserve Suite
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Immersive Dining Section -->
+<section id="dining" class="relative h-[85vh] min-h-[600px] flex items-center justify-end overflow-hidden group">
+    <div class="absolute inset-0">
+        <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Michelin-starred Fine Dining" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAylfvA1NTi4iWN7cTF5ptXxOFXIEFggU5QbzLm-Xc7ClNURDZpDbeDzWE5RyLmQ5me3Enz6NotZmv6V0HTu2I8Ao8vpK6lhgaGuQBSJZJRbyGOLI4XoSURfSJzajkXe3EisMTX4LaP_F7iJvzvMBZ-dcEKV2e2fMH72GRwT9j8IImf6UKehKjc6I5w-p1CvQr-owLkE8OB_Hphd3z_9kQkBTFTCGFk6t92tUc1W0BS0Axrr_3oKXGr"/>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
+    
+    <div class="relative z-10 w-full lg:w-1/2 p-8 lg:p-24 bg-surface/90 backdrop-blur-md reveal shadow-2xl">
+        <h2 class="font-label-md text-primary tracking-[0.3em] uppercase mb-4 text-sm font-semibold">Epicurean Journeys</h2>
+        <h3 class="font-headline-lg text-4xl lg:text-5xl mb-6">The Taste of Pure Sophistication</h3>
+        <p class="font-body-md text-on-surface-variant mb-10 text-base leading-relaxed">From our signature Michelin-starred restaurant to the intimate jazz bar, our culinary offerings are a symphony of local flavors and global techniques, curated by world-class artisans.</p>
+        <button onclick="openMenuModal()" class="bg-primary text-on-primary font-label-md px-10 py-5 uppercase tracking-widest hover:bg-on-primary-container transition-all shadow-lg active:scale-95">
+            View Seasonal Menu
+        </button>
+    </div>
+</section>
+
+<!-- Wellness Sanctuary Section -->
+<section id="wellness" class="py-24 lg:py-40 bg-surface-bright px-6 lg:px-24">
+    <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+        <h2 class="font-label-md text-primary tracking-[0.3em] uppercase mb-4 text-sm font-semibold">Sanctuary</h2>
+        <h3 class="font-headline-lg text-4xl lg:text-5xl mb-6">Wellness Redefined</h3>
+        <p class="font-body-lg text-on-surface-variant italic text-lg lg:text-xl">"A tranquil retreat designed to restore your mind, body, and soul in the heart of the resort."</p>
+    </div>
+    
+    <div class="grid lg:grid-cols-3 gap-12">
+        <!-- Card 1 -->
+        <div class="space-y-8 reveal" style="transition-delay: 100ms;">
+            <div class="curtain-reveal aspect-square overflow-hidden shadow-xl">
+                <img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Hydrotherapy Thermal Circuit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSgvvkQa72-LKfwxEP6i3fiXVTUi77KYmbe4vRIwv_dl9K7GrN5uXkUiQGDC98gU9uPh4oRQae7nMP4fj9383gkm0DYuG2zX69h-BrQmcOZf7fozmjm-gV2rANJ4CRLaLiDOAYU29VWRLTa2b4rePfA29p3KbDzmeUH3rPz23tFi2xf7-Ukr46MtSSmMitdwpAiOq2Zux6ZUDQPB69fY1rk7aGML01eU2h_Ul-8leLCLYypOCWS0T-"/>
+            </div>
+            <div>
+                <h4 class="font-headline-md text-2xl mb-3">Hydrotherapy Circuit</h4>
+                <p class="text-on-surface-variant font-body-md leading-relaxed">Healing thermal waters, vitality mineral pools, and ice grottoes designed to invigorate circulation and calm the mind.</p>
+                <button onclick="openSpaModal('Hydrotherapy Circuit')" class="mt-4 font-label-md text-xs uppercase tracking-widest text-primary border-b border-primary pb-1 hover:text-on-primary-container transition-all">Book Circuit</button>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="space-y-8 reveal lg:mt-16" style="transition-delay: 300ms;">
+            <div class="curtain-reveal aspect-square overflow-hidden shadow-xl">
+                <img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Signature Holistic Spa Rituals" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1nL56icuodu2tg20mupE0WqBI5EQOjNS-Mdp204uTwAYcUp-dDykvRw5gkEIvd4lUlCDvZ4hBfgfNSuV_LI0WFZZpjKAdM2aVOzuBP-3nGbCVsE9S4W24HJ8N9SwgSJaxHk9eZS3FZg5pMo-3CKSycY0_LYIJ3zCRZgqcwty_GJgs_ezw4lcOgJtImMDGzQsbeYSym1UdiZL1notf-hmzp9iSovW14p9Zf1Q9NUIx9OSX23be4CiK"/>
+            </div>
+            <div>
+                <h4 class="font-headline-md text-2xl mb-3">Signature Rituals</h4>
+                <p class="text-on-surface-variant font-body-md leading-relaxed">Bespoke holistic treatments using rare botanical essences, warm stone therapy, and ancient healing massage arts.</p>
+                <button onclick="openSpaModal('Signature Rituals')" class="mt-4 font-label-md text-xs uppercase tracking-widest text-primary border-b border-primary pb-1 hover:text-on-primary-container transition-all">Reserve Treatment</button>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="space-y-8 reveal" style="transition-delay: 500ms;">
+            <div class="curtain-reveal aspect-square overflow-hidden shadow-xl">
+                <img class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" alt="Zen Yoga & Meditation Pavilion" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSUdSwcuvQbOBdFjoQbE6x5VFyTP0VOyjFhJXxkkApzF-nPRk0PRvaxUbVeKu2N2LaLquWubJ_GQex0KGjY7R1PpdFH_iS9Uv9vagFm6qUVGoplXn7k69tLuv2ICSlUXHQ3j_PgIwBiE2kTB-3DAyx61IHBas9Grh7A0sDkR-Ipk3qRVCQk1b3GVXJDgIhNDD71Xq3AMqsetUrl9T-tR2My7I3f66Cz6FiMxg3EZ3ZSrkc-qpxphuV"/>
+            </div>
+            <div>
+                <h4 class="font-headline-md text-2xl mb-3">Zen Pavilion</h4>
+                <p class="text-on-surface-variant font-body-md leading-relaxed">A dedicated sanctuary for private meditation, sound bath healing, and sunrise yoga led by resident masters.</p>
+                <button onclick="openSpaModal('Zen Yoga Session')" class="mt-4 font-label-md text-xs uppercase tracking-widest text-primary border-b border-primary pb-1 hover:text-on-primary-container transition-all">Join Session</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Social & Contact Hub -->
+<section id="contact" class="py-24 bg-surface-container-low border-t border-outline-variant/20">
+    <div class="px-6 lg:px-24">
+        <div class="flex flex-col lg:flex-row justify-between items-end mb-16 reveal">
+            <div class="max-w-xl">
+                <h2 class="font-label-md text-primary tracking-[0.3em] uppercase mb-4 text-sm font-semibold">Connect</h2>
+                <h3 class="font-headline-lg text-4xl lg:text-5xl">Stay in the Elysia Loop</h3>
+            </div>
+            <div class="mt-8 lg:mt-0">
+                <a class="font-label-md text-primary border-b border-primary pb-2 hover:text-on-primary-container hover:border-on-primary-container transition-all tracking-widest text-sm" href="https://instagram.com" target="_blank" rel="noopener">@ELYSIA_HERITAGE</a>
+            </div>
+        </div>
+
+        <!-- Instagram Gallery Grid with Lightbox Trigger -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24 reveal">
+            <div onclick="openLightbox('https://lh3.googleusercontent.com/aida-public/AB6AXuB0F1n3nH1Vvs91UYMKZF9tIQJxVOu_V5AzpslV1m6pufAdwlrBFzb_ecOKbeCVxw_evXrwUPpWwqnpvc7cp5R606tMtoG39b8nrzIMPtwIvLFvfbP3LtHkRviMWjjFvE9lJI3PyP1oqXghouzOru3U4HYRArmCa-jlqEiiNAJsx0YKSY7J_eS408Ai5vImDdt2m3rJWMVMH2AQt4hzwsPvd8Wm46BZu789LHnh8tHmuvYpnG1wqd9c', 'Morning Breakfast in Bed')" class="aspect-square bg-surface-dim overflow-hidden group cursor-pointer relative">
+                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Morning Breakfast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0F1n3nH1Vvs91UYMKZF9tIQJxVOu_V5AzpslV1m6pufAdwlrBFzb_ecOKbeCVxw_evXrwUPpWwqnpvc7cp5R606tMtoG39b8nrzIMPtwIvLFvfbP3LtHkRviMWjjFvE9lJI3PyP1oqXghouzOru3U4HYRArmCa-jlqEiiNAJsx0YKSY7J_eS408Ai5vImDdt2m3rJWMVMH2AQt4hzwsPvd8Wm46BZu789LHnh8tHmuvYpnG1wqd9c"/>
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-3xl">zoom_in</span>
+                </div>
+            </div>
+
+            <div onclick="openLightbox('https://lh3.googleusercontent.com/aida-public/AB6AXuCxyk8ZFLFLtUN_Rap67nFMq1WPIVB5-rHV9KGpbkLjkA49t7oNPAI5-VC3VeTS4gV3l2seDm21zwNvXkta_lhrft-wT8qZOpCIMyAeDs0AJtxkctp2Y6HKJVRQxIiLBYfVdbmBKHK4Y5eCDlgHMQP4oxW0oIKdG_qktXdn3GdRpOFqN3bH7T9I_dw9oqAxkO5TAPc3YUnjV_BIZ6YvM4BPwHs_cgf7kloTjZ_Prp0bMLx3HMAqw02r', 'Architectural Grand Staircase')" class="aspect-square bg-surface-dim overflow-hidden group cursor-pointer relative">
+                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Grand Staircase" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxyk8ZFLFLtUN_Rap67nFMq1WPIVB5-rHV9KGpbkLjkA49t7oNPAI5-VC3VeTS4gV3l2seDm21zwNvXkta_lhrft-wT8qZOpCIMyAeDs0AJtxkctp2Y6HKJVRQxIiLBYfVdbmBKHK4Y5eCDlgHMQP4oxW0oIKdG_qktXdn3GdRpOFqN3bH7T9I_dw9oqAxkO5TAPc3YUnjV_BIZ6YvM4BPwHs_cgf7kloTjZ_Prp0bMLx3HMAqw02r"/>
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-3xl">zoom_in</span>
+                </div>
+            </div>
+
+            <div onclick="openLightbox('https://lh3.googleusercontent.com/aida-public/AB6AXuAS8KqR2TlpRn8wbEjny2DOmH27u3TYookIrIMwb2OXuycLrlHD3qBPZkqKjy-HAiYKK7X2UfJWqQv8ZamjMKCga3kEsgBmTVjdk3JJl2qiX7pBnp_iDAtiLULeQdkKdWgtVSnuxMst-XGkgcR_53Kprg0OXt97PMevPBi47ujKSy8vfYCkq2nDV2N_B8DTLDs-7Kb_EW0QcdUwWng-jIu1IK8_QDwsIhQ-aMJGUnau3bpG01nMp_q3', 'Evening Lounge & Cocktails')" class="aspect-square bg-surface-dim overflow-hidden group cursor-pointer relative">
+                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Evening Lounge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS8KqR2TlpRn8wbEjny2DOmH27u3TYookIrIMwb2OXuycLrlHD3qBPZkqKjy-HAiYKK7X2UfJWqQv8ZamjMKCga3kEsgBmTVjdk3JJl2qiX7pBnp_iDAtiLULeQdkKdWgtVSnuxMst-XGkgcR_53Kprg0OXt97PMevPBi47ujKSy8vfYCkq2nDV2N_B8DTLDs-7Kb_EW0QcdUwWng-jIu1IK8_QDwsIhQ-aMJGUnau3bpG01nMp_q3"/>
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-3xl">zoom_in</span>
+                </div>
+            </div>
+
+            <div onclick="openLightbox('https://lh3.googleusercontent.com/aida-public/AB6AXuDsS1--plsarGa7BJ88SF5T-u0BwwDwrcogu1Tr-38j4ikU-T8OkppS8Z6FdFHyw-V36YotNcfUQ0RWTlU7YI8CVT5cobx4_K0ln9wD1ygmnAiGxStik27bTlPq2ZSGSFmiJF09wUPmZSCzVYocT935ZHmSVMqqxjxibYQcpt8Y0HT248rYaeaEq_2H0aef9dwjxNz8P2mNQf5njGRLTPyEhOxfEDp8NPZDqhckBaredArqTfQm1mA9', 'Resort Sanctuary Sunset')" class="aspect-square bg-surface-dim overflow-hidden group cursor-pointer relative">
+                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Sunset Gardens" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsS1--plsarGa7BJ88SF5T-u0BwwDwrcogu1Tr-38j4ikU-T8OkppS8Z6FdFHyw-V36YotNcfUQ0RWTlU7YI8CVT5cobx4_K0ln9wD1ygmnAiGxStik27bTlPq2ZSGSFmiJF09wUPmZSCzVYocT935ZHmSVMqqxjxibYQcpt8Y0HT248rYaeaEq_2H0aef9dwjxNz8P2mNQf5njGRLTPyEhOxfEDp8NPZDqhckBaredArqTfQm1mA9"/>
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-3xl">zoom_in</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Box & Interactive Inquiry Form -->
+        <div class="grid lg:grid-cols-3 gap-12 bg-white p-8 lg:p-16 shadow-2xl reveal border border-outline-variant/20">
+            <div>
+                <h4 class="font-label-md text-caption uppercase tracking-widest text-primary mb-6 font-semibold">Reservations</h4>
+                <p class="font-headline-md text-2xl mb-2 hover:text-primary transition-colors"><a href="tel:+18005553597">+1 (800) 555-ELYSIA</a></p>
+                <p class="text-on-surface-variant font-body-md text-sm"><a href="mailto:stay@elysia-hotel.com" class="hover:underline">stay@elysia-hotel.com</a></p>
+                <p class="mt-6 text-xs text-on-surface-variant/80">Available 24 hours daily for bespoke reservations and concierge arrangements.</p>
+            </div>
+            
+            <div>
+                <h4 class="font-label-md text-caption uppercase tracking-widest text-primary mb-6 font-semibold">Concierge Desk</h4>
+                <p class="font-headline-md text-2xl mb-4">Direct Communication</p>
+                <div class="flex gap-4">
+                    <button onclick="toggleConciergeChat()" class="size-12 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all shadow-sm">
+                        <span class="material-symbols-outlined">chat_bubble</span>
+                    </button>
+                    <a href="tel:+18005553597" class="size-12 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all shadow-sm">
+                        <span class="material-symbols-outlined">call</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-label-md text-caption uppercase tracking-widest text-primary mb-6 font-semibold">Location</h4>
+                <p class="font-body-md text-on-surface-variant">124 Heritage Boulevard, <br/>Mayfair, London, W1J 7BR</p>
+                <button onclick="openMapModal()" class="inline-block mt-4 text-primary font-label-md uppercase tracking-wider text-caption hover:underline">
+                    Get Directions & Map
+                </button>
+            </div>
+        </div>
+        
+        <!-- Interactive Inquiry Form -->
+        <div class="mt-16 bg-white p-8 lg:p-12 shadow-xl border border-outline-variant/20 reveal">
+            <h4 class="font-headline-md text-2xl mb-2">Send an Inquiry</h4>
+            <p class="text-on-surface-variant font-body-md text-sm mb-8">Our guest relations team will respond within two hours.</p>
+            <form onsubmit="handleInquirySubmit(event)" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">Full Name</label>
+                    <input type="text" required placeholder="Lord / Lady Sterling" class="w-full bg-surface-bright border border-outline-variant/60 p-3 text-sm focus:border-primary focus:ring-0 outline-none transition-all"/>
+                </div>
+                <div>
+                    <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">Email Address</label>
+                    <input type="email" required placeholder="sterling@heritage.com" class="w-full bg-surface-bright border border-outline-variant/60 p-3 text-sm focus:border-primary focus:ring-0 outline-none transition-all"/>
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">Subject / Interest</label>
+                    <select class="w-full bg-surface-bright border border-outline-variant/60 p-3 text-sm focus:border-primary focus:ring-0 outline-none transition-all">
+                        <option>General Reservation Inquiry</option>
+                        <option>Private Dining & Events</option>
+                        <option>Spa & Wellness Packages</option>
+                        <option>Helicopter / Airport Transfer</option>
+                    </select>
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">Message</label>
+                    <textarea rows="4" required placeholder="Please state any specific preferences or dates..." class="w-full bg-surface-bright border border-outline-variant/60 p-3 text-sm focus:border-primary focus:ring-0 outline-none transition-all"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="bg-primary text-on-primary font-label-md px-8 py-3.5 uppercase tracking-widest text-xs hover:bg-primary-container transition-all">
+                        Transmit Inquiry
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-on-surface text-surface py-20 px-6 lg:px-24">
+    <div class="flex flex-col lg:flex-row justify-between gap-12 mb-20 border-b border-surface/10 pb-20">
+        <div class="max-w-sm">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="size-8 text-primary">
+                    <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" d="M47.2426 24L24 47.2426L0.757355 24L24 0.757355L47.2426 24ZM12.2426 21H35.7574L24 9.24264L12.2426 21Z" fill-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h2 class="font-headline-md text-title-lg tracking-widest uppercase">Elysia</h2>
+            </div>
+            <p class="text-surface-dim font-body-md text-sm leading-relaxed">Redefining luxury since 1924. A landmark sanctuary of the Global Heritage Collection.</p>
+        </div>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-10">
+            <div class="flex flex-col gap-4">
+                <span class="font-label-md text-caption uppercase tracking-widest text-primary mb-2 font-semibold">Explore</span>
+                <a onclick="openStoryModal()" class="text-surface-dim hover:text-white transition-colors cursor-pointer text-sm" href="javascript:void(0)">History</a>
+                <a href="#suites" class="text-surface-dim hover:text-white transition-colors text-sm">Suites & Villas</a>
+                <a href="#dining" class="text-surface-dim hover:text-white transition-colors text-sm">Fine Dining</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <span class="font-label-md text-caption uppercase tracking-widest text-primary mb-2 font-semibold">Legal</span>
+                <a onclick="openModal('privacy-modal')" class="text-surface-dim hover:text-white transition-colors cursor-pointer text-sm" href="javascript:void(0)">Privacy Policy</a>
+                <a onclick="openModal('terms-modal')" class="text-surface-dim hover:text-white transition-colors cursor-pointer text-sm" href="javascript:void(0)">Terms of Use</a>
+                <a onclick="openModal('accessibility-modal')" class="text-surface-dim hover:text-white transition-colors cursor-pointer text-sm" href="javascript:void(0)">Accessibility</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <span class="font-label-md text-caption uppercase tracking-widest text-primary mb-2 font-semibold">Social</span>
+                <a class="text-surface-dim hover:text-white transition-colors text-sm" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+                <a class="text-surface-dim hover:text-white transition-colors text-sm" href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+                <a class="text-surface-dim hover:text-white transition-colors text-sm" href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center text-surface-dim/40 text-caption font-label-md tracking-widest text-xs">
+        © 1924 - 2026 ELYSIA HOTELS & RESORTS. ALL RIGHTS RESERVED.
+    </div>
+</footer>
+
+<!-- Floating Actions -->
+<div class="fixed bottom-8 right-8 z-30 flex flex-col gap-4">
+    <button onclick="toggleConciergeChat()" class="float-btn size-14 bg-emerald-700 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform cursor-pointer" title="Live Concierge Chat">
+        <span class="material-symbols-outlined text-2xl">chat</span>
+    </button>
+    <a href="tel:+18005553597" class="float-btn size-14 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform cursor-pointer" style="animation-delay: 0.5s;" title="Direct Call Concierge">
+        <span class="material-symbols-outlined text-2xl">call</span>
+    </a>
+</div>
+
+<!-- ================= MODALS & SLIDE-OVERS ================= -->
+
+<!-- 1. Interactive Booking Modal Drawer -->
+<div id="booking-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[70] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+    <div class="bg-surface-bright w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl p-8 lg:p-12 relative border border-outline-variant/30">
+        <button onclick="closeBookingModal()" class="absolute top-6 right-6 text-on-surface hover:text-primary">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+
+        <div id="booking-step-1">
+            <span class="font-label-md text-xs uppercase tracking-widest text-primary mb-2 block">Reservations</span>
+            <h3 class="font-headline-md text-3xl mb-6">Book Your Sanctuary</h3>
+            
+            <form onsubmit="handleBookingNext(event)" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">Check-in Date</label>
+                        <input id="book-checkin" type="date" required onchange="calculateBookingTotal()" class="w-full bg-white border border-outline-variant/60 p-3 text-sm focus:border-primary outline-none"/>
+                    </div>
+                    <div>
+                        <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">Check-out Date</label>
+                        <input id="book-checkout" type="date" required onchange="calculateBookingTotal()" class="w-full bg-white border border-outline-variant/60 p-3 text-sm focus:border-primary outline-none"/>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">Select Suite or Villa</label>
+                    <select id="book-suite-select" onchange="calculateBookingTotal()" class="w-full bg-white border border-outline-variant/60 p-3 text-sm focus:border-primary outline-none">
+                        <option value="850">The 1924 Heritage Suite ($850 / night)</option>
+                        <option value="1250" selected>The Horizon Ocean Villa ($1,250 / night)</option>
+                        <option value="2800">Royal Skyline Penthouse ($2,800 / night)</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">Adult Guests</label>
+                        <select id="book-guests" onchange="calculateBookingTotal()" class="w-full bg-white border border-outline-variant/60 p-3 text-sm focus:border-primary outline-none">
+                            <option>1 Adult</option>
+                            <option selected>2 Adults</option>
+                            <option>3 Adults</option>
+                            <option>4 Adults</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">Children</label>
+                        <select class="w-full bg-white border border-outline-variant/60 p-3 text-sm focus:border-primary outline-none">
+                            <option>0 Children</option>
+                            <option>1 Child</option>
+                            <option>2 Children</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Price Summary Box -->
+                <div class="bg-surface-container-low p-6 border border-outline-variant/30 space-y-2 text-sm">
+                    <div class="flex justify-between text-on-surface-variant">
+                        <span>Nights:</span>
+                        <span id="summary-nights">3 Nights</span>
+                    </div>
+                    <div class="flex justify-between text-on-surface-variant">
+                        <span>Suite Rate:</span>
+                        <span id="summary-rate">$1,250 / night</span>
+                    </div>
+                    <div class="flex justify-between text-on-surface-variant">
+                        <span>Taxes & Luxury Service Fee (12%):</span>
+                        <span id="summary-taxes">$450</span>
+                    </div>
+                    <div class="h-px bg-outline-variant/40 my-2"></div>
+                    <div class="flex justify-between font-headline-md text-xl text-primary font-bold">
+                        <span>Estimated Total:</span>
+                        <span id="summary-total">$4,200</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-primary text-on-primary font-label-md py-4 uppercase tracking-widest text-xs hover:bg-primary-container transition-all">
+                    Proceed to Guest Details
+                </button>
+            </form>
+        </div>
+
+        <!-- Step 2: Guest Details -->
+        <div id="booking-step-2" class="hidden">
+            <span class="font-label-md text-xs uppercase tracking-widest text-primary mb-2 block">Step 2 of 2</span>
+            <h3 class="font-headline-md text-3xl mb-6">Guest Information</h3>
+            
+            <form onsubmit="handleBookingConfirm(event)" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">First Name</label>
+                        <input type="text" required placeholder="Eleanor" class="w-full bg-white border border-outline-variant/60 p-3 text-sm outline-none focus:border-primary"/>
+                    </div>
+                    <div>
+                        <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">Last Name</label>
+                        <input type="text" required placeholder="Vane" class="w-full bg-white border border-outline-variant/60 p-3 text-sm outline-none focus:border-primary"/>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">Email Address</label>
+                    <input type="email" required placeholder="eleanor@vane.com" class="w-full bg-white border border-outline-variant/60 p-3 text-sm outline-none focus:border-primary"/>
+                </div>
+                <div>
+                    <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">Telephone Number</label>
+                    <input type="tel" required placeholder="+1 (555) 019-2834" class="w-full bg-white border border-outline-variant/60 p-3 text-sm outline-none focus:border-primary"/>
+                </div>
+                <div>
+                    <label class="block font-label-md text-xs uppercase tracking-wider text-on-surface-variant mb-2">Special Concierge Requests</label>
+                    <textarea rows="3" placeholder="Airport transfer, champagne on arrival, dietary requirements..." class="w-full bg-white border border-outline-variant/60 p-3 text-sm outline-none focus:border-primary"></textarea>
+                </div>
+                <div class="flex gap-4">
+                    <button type="button" onclick="showBookingStep(1)" class="w-1/3 border border-outline-variant font-label-md py-4 uppercase tracking-widest text-xs">Back</button>
+                    <button type="submit" class="w-2/3 bg-primary text-on-primary font-label-md py-4 uppercase tracking-widest text-xs hover:bg-primary-container">Confirm Reservation</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Step 3: Confirmation -->
+        <div id="booking-step-3" class="hidden text-center py-8">
+            <span class="material-symbols-outlined text-6xl text-primary mb-4">task_alt</span>
+            <h3 class="font-headline-md text-3xl mb-4">Reservation Confirmed</h3>
+            <p class="font-body-md text-on-surface-variant mb-6">Thank you. Your reservation reference number is <strong class="text-primary font-bold">ELY-2026-9842</strong>. A confirmation email with your concierge schedule has been sent.</p>
+            <button onclick="closeBookingModal()" class="bg-primary text-on-primary font-label-md px-8 py-3 uppercase tracking-widest text-xs">Return to Resort</button>
+        </div>
+    </div>
+</div>
+
+<!-- 2. Live Concierge Chat Widget -->
+<div id="concierge-chat" class="fixed bottom-24 right-8 z-[60] w-full max-w-sm bg-white shadow-2xl border border-outline-variant/30 hidden transition-all duration-300">
+    <div class="bg-primary text-on-primary p-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="size-9 rounded-full overflow-hidden border border-white/40">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRDMgXDc4toC5t7fgNj-21LHow0TYTp9cJrOlIJQ5eiaF3kK5LYj5y2wxJK6ax_KIqyd6wnhzhGH0lKHWNEQOD1Uv7y-HRfJkPizrUKzaQCsUFRn0r4pGzfFqkmQxBRtzPoJiNrRj9ImlhQQU42sK-Hp59Q8Krru2qq_6rQplKa_Z_OZ4byD8XsGSE5lzOhj49DRM_eBQvZoGbx9CJw8QpWNDc10wdWFO-R62eAeX1l6yGpc_ljIPa" alt="Senior Concierge Jean-Luc" class="w-full h-full object-cover"/>
+            </div>
+            <div>
+                <h4 class="font-headline-md text-sm font-semibold">Jean-Luc</h4>
+                <span class="text-[10px] text-white/80 font-label-md tracking-wider">Senior Concierge</span>
+            </div>
+        </div>
+        <button onclick="toggleConciergeChat()" class="text-white hover:text-primary-fixed">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+
+    <!-- Messages Body -->
+    <div id="chat-messages" class="p-4 h-80 overflow-y-auto space-y-4 text-xs font-body-md bg-surface-bright">
+        <div class="bg-surface-container-low p-3 rounded-lg text-on-surface-variant max-w-[85%] border border-outline-variant/20">
+            Greetings. I am Jean-Luc, your Senior Concierge at Elysia. How may I assist your stay or reservation today?
+        </div>
+    </div>
+
+    <!-- Quick Options -->
+    <div class="px-4 py-2 bg-surface-container-lowest border-t border-outline-variant/20 flex gap-2 overflow-x-auto text-[10px]">
+        <button onclick="sendQuickChat('Book Fine Dining')" class="whitespace-nowrap border border-primary/40 px-2 py-1 rounded text-primary hover:bg-primary hover:text-white">Dining Table</button>
+        <button onclick="sendQuickChat('Airport Transfer')" class="whitespace-nowrap border border-primary/40 px-2 py-1 rounded text-primary hover:bg-primary hover:text-white">Airport Transfer</button>
+        <button onclick="sendQuickChat('Spa Availability')" class="whitespace-nowrap border border-primary/40 px-2 py-1 rounded text-primary hover:bg-primary hover:text-white">Spa Booking</button>
+    </div>
+
+    <!-- Input Form -->
+    <form onsubmit="handleChatSubmit(event)" class="p-3 bg-white border-t border-outline-variant/30 flex gap-2">
+        <input id="chat-input" type="text" placeholder="Type message to Concierge..." class="w-full bg-surface-bright text-xs p-2.5 outline-none border border-outline-variant/50 focus:border-primary"/>
+        <button type="submit" class="bg-primary text-white p-2.5 flex items-center justify-center hover:bg-primary-container">
+            <span class="material-symbols-outlined text-base">send</span>
+        </button>
+    </form>
+</div>
+
+<!-- 3. Seasonal Dining Menu Modal -->
+<div id="menu-modal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-[70] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+    <div class="bg-surface-bright w-full max-w-3xl max-h-[85vh] overflow-y-auto shadow-2xl p-8 lg:p-12 relative border border-outline-variant/30">
+        <button onclick="closeModal('menu-modal')" class="absolute top-6 right-6 text-on-surface hover:text-primary">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+        
+        <span class="font-label-md text-xs uppercase tracking-widest text-primary mb-2 block">Michelin Culinary Art</span>
+        <h3 class="font-headline-lg text-4xl mb-8">Seasonal Degustation Menu</h3>
+        
+        <div class="space-y-8">
+            <div class="border-b border-outline-variant/40 pb-6">
+                <div class="flex justify-between items-baseline mb-2">
+                    <h4 class="font-headline-md text-xl">Wild Scottish Salmon & Osetra Caviar</h4>
+                    <span class="font-display-lg text-lg text-primary font-bold">$68</span>
+                </div>
+                <p class="text-on-surface-variant text-sm">Cured wild salmon, Royal Osetra caviar, dill emulsification, and crispy buckwheat tuile.</p>
+            </div>
+
+            <div class="border-b border-outline-variant/40 pb-6">
+                <div class="flex justify-between items-baseline mb-2">
+                    <h4 class="font-headline-md text-xl">A5 Wagyu Beef Tenderloin</h4>
+                    <span class="font-display-lg text-lg text-primary font-bold">$140</span>
+                </div>
+                <p class="text-on-surface-variant text-sm">Miyazaki prefecture A5 Wagyu, smoked bone marrow reduction, black winter truffle, and heirloom roots.</p>
+            </div>
+
+            <div class="border-b border-outline-variant/40 pb-6">
+                <div class="flex justify-between items-baseline mb-2">
+                    <h4 class="font-headline-md text-xl">Black Truffle Risotto</h4>
+                    <span class="font-display-lg text-lg text-primary font-bold">$54</span>
+                </div>
+                <p class="text-on-surface-variant text-sm">Acquerello carnaroli rice, 24-month aged Parmigiano Reggiano, shaved Umbrian truffle, and cultured butter.</p>
+            </div>
+
+            <div>
+                <div class="flex justify-between items-baseline mb-2">
+                    <h4 class="font-headline-md text-xl">Grand Cru Valrhona Chocolate Sphere</h4>
+                    <span class="font-display-lg text-lg text-primary font-bold">$32</span>
+                </div>
+                <p class="text-on-surface-variant text-sm">70% Dark chocolate shell, salted caramel heart, hazelnut praline gelato, poured espresso ganache.</p>
+            </div>
+        </div>
+
+        <div class="mt-10 text-center">
+            <button onclick="closeModal('menu-modal'); openBookingModal();" class="bg-primary text-on-primary font-label-md px-10 py-4 uppercase tracking-widest text-xs">Reserve Dining Table</button>
+        </div>
+    </div>
+</div>
+
+<!-- 4. Story & History Modal -->
+<div id="story-modal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-[70] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+    <div class="bg-surface-bright w-full max-w-3xl max-h-[85vh] overflow-y-auto shadow-2xl p-8 lg:p-12 relative border border-outline-variant/30">
+        <button onclick="closeModal('story-modal')" class="absolute top-6 right-6 text-on-surface hover:text-primary">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+        
+        <span class="font-label-md text-xs uppercase tracking-widest text-primary mb-2 block">1924 — 2026</span>
+        <h3 class="font-headline-lg text-4xl mb-6">A Century of Heritage</h3>
+        
+        <div class="space-y-6 text-on-surface-variant font-body-lg text-sm leading-relaxed">
+            <p>Founded in 1924 by visionary architect Sir Julian Sterling, Elysia was conceived as a testament to timeless grandeur. Originally built as a private enclave for international diplomats and nobility, the resort has maintained its prestige for over a century.</p>
+            <div class="my-6 border-l-2 border-primary pl-4 italic text-on-surface">
+                "To step across the threshold of Elysia is to enter a world where time slows, and every detail whispers of excellence."
+            </div>
+            <p>From hosting historic peace summits in the 1940s to welcoming modern cultural luminaries, Elysia remains the crown jewel of luxury hospitality.</p>
+        </div>
+    </div>
+</div>
+
+<!-- 5. Image Lightbox Modal -->
+<div id="lightbox-modal" class="fixed inset-0 bg-black/90 z-[80] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+    <button onclick="closeModal('lightbox-modal')" class="absolute top-6 right-6 text-white hover:text-primary">
+        <span class="material-symbols-outlined text-4xl">close</span>
+    </button>
+    <div class="max-w-4xl max-h-[85vh] text-center">
+        <img id="lightbox-img" src="" alt="Enlarged gallery view" class="max-w-full max-h-[75vh] object-contain mx-auto border-2 border-white/20"/>
+        <p id="lightbox-caption" class="text-white font-headline-md text-xl mt-4"></p>
+    </div>
+</div>
+
+<!-- 6. Generic Text Modals (Privacy / Terms / Map) -->
+<div id="info-modal" class="fixed inset-0 bg-black/70 backdrop-blur-md z-[70] hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+    <div class="bg-surface-bright w-full max-w-2xl overflow-y-auto shadow-2xl p-8 lg:p-12 relative border border-outline-variant/30">
+        <button onclick="closeModal('info-modal')" class="absolute top-6 right-6 text-on-surface hover:text-primary">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+        <h3 id="info-title" class="font-headline-lg text-3xl mb-4">Information</h3>
+        <div id="info-body" class="text-on-surface-variant font-body-md text-sm leading-relaxed space-y-4"></div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="fixed bottom-8 left-8 z-[90] bg-on-surface text-surface px-6 py-4 shadow-2xl flex items-center gap-3 hidden transition-all duration-300 transform translate-y-10">
+    <span class="material-symbols-outlined text-primary">check_circle</span>
+    <span id="toast-message" class="font-label-md text-xs tracking-wider">Message sent successfully.</span>
+</div>
+
+<!-- JavaScript Logic -->
+<script>
+    // Scroll Animations
+    function revealOnScroll() {
+        const reveals = document.querySelectorAll(".reveal, .curtain-reveal");
+        reveals.forEach(reveal => {
+            const windowHeight = window.innerHeight;
+            const elementTop = reveal.getBoundingClientRect().top;
+            const elementVisible = 120;
+            if (elementTop < windowHeight - elementVisible) {
+                reveal.classList.add("active");
+            }
+        });
+    }
+
+    // Navbar Scroll Effect
+    function handleNav() {
+        const nav = document.getElementById("main-nav");
+        if (window.scrollY > 50) {
+            nav.classList.add("nav-scrolled");
+        } else {
+            nav.classList.remove("nav-scrolled");
+        }
+    }
+
+    window.addEventListener("scroll", () => {
+        revealOnScroll();
+        handleNav();
+    });
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+        const menu = document.getElementById("mobile-menu");
+        const icon = document.getElementById("mobile-menu-icon");
+        if (menu.classList.contains("hidden")) {
+            menu.classList.remove("hidden");
+            setTimeout(() => menu.classList.remove("opacity-0"), 10);
+            icon.textContent = "close";
+        } else {
+            menu.classList.add("opacity-0");
+            setTimeout(() => {
+                menu.classList.add("hidden");
+                icon.textContent = "menu";
+            }, 300);
+        }
+    }
+
+    // Suite Filtering
+    function filterSuites(category) {
+        const cards = document.querySelectorAll(".suite-card");
+        const tabs = document.querySelectorAll(".suite-tab");
+        
+        tabs.forEach(tab => {
+            tab.classList.remove("bg-primary", "text-on-primary", "border-primary");
+            tab.classList.add("border-outline-variant", "text-on-surface");
+        });
+
+        event.target.classList.add("bg-primary", "text-on-primary", "border-primary");
+        event.target.classList.remove("border-outline-variant", "text-on-surface");
+
+        cards.forEach(card => {
+            if (category === "all" || card.classList.contains(category)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+
+    // Modal Handlers
+    function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.remove("hidden");
+            setTimeout(() => modal.classList.remove("opacity-0"), 10);
+        }
+    }
+
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.add("opacity-0");
+            setTimeout(() => modal.classList.add("hidden"), 300);
+        }
+    }
+
+    // Booking Drawer Logic
+    function openBookingModal(presetSuite = null) {
+        // Set dates default
+        const today = new Date();
+        const checkin = new Date(today);
+        checkin.setDate(today.getDate() + 3);
+        const checkout = new Date(checkin);
+        checkout.setDate(checkin.getDate() + 3);
+
+        document.getElementById("book-checkin").value = checkin.toISOString().split("T")[0];
+        document.getElementById("book-checkout").value = checkout.toISOString().split("T")[0];
+
+        if (presetSuite) {
+            const select = document.getElementById("book-suite-select");
+            for (let option of select.options) {
+                if (option.text.includes(presetSuite)) {
+                    option.selected = true;
+                    break;
+                }
+            }
+        }
+
+        showBookingStep(1);
+        calculateBookingTotal();
+        openModal("booking-modal");
+    }
+
+    function closeBookingModal() {
+        closeModal("booking-modal");
+    }
+
+    function showBookingStep(step) {
+        document.getElementById("booking-step-1").classList.add("hidden");
+        document.getElementById("booking-step-2").classList.add("hidden");
+        document.getElementById("booking-step-3").classList.add("hidden");
+        document.getElementById(`booking-step-${step}`).classList.remove("hidden");
+    }
+
+    function calculateBookingTotal() {
+        const inDate = new Date(document.getElementById("book-checkin").value);
+        const outDate = new Date(document.getElementById("book-checkout").value);
+        const rate = parseFloat(document.getElementById("book-suite-select").value);
+
+        let nights = 1;
+        if (outDate > inDate) {
+            nights = Math.ceil((outDate - inDate) / (1000 * 60 * 60 * 24));
+        }
+
+        const subtotal = rate * nights;
+        const taxes = Math.round(subtotal * 0.12);
+        const total = subtotal + taxes;
+
+        document.getElementById("summary-nights").textContent = `${nights} Night${nights > 1 ? 's' : ''}`;
+        document.getElementById("summary-rate").textContent = `$${rate.toLocaleString()} / night`;
+        document.getElementById("summary-taxes").textContent = `$${taxes.toLocaleString()}`;
+        document.getElementById("summary-total").textContent = `$${total.toLocaleString()}`;
+    }
+
+    function handleBookingNext(e) {
+        e.preventDefault();
+        showBookingStep(2);
+    }
+
+    function handleBookingConfirm(e) {
+        e.preventDefault();
+        showBookingStep(3);
+    }
+
+    // Concierge Chat Slide-over
+    function toggleConciergeChat() {
+        const chat = document.getElementById("concierge-chat");
+        if (chat.classList.contains("hidden")) {
+            chat.classList.remove("hidden");
+        } else {
+            chat.classList.add("hidden");
+        }
+    }
+
+    function sendQuickChat(msg) {
+        document.getElementById("chat-input").value = msg;
+        handleChatSubmit(new Event('submit'));
+    }
+
+    function handleChatSubmit(e) {
+        e.preventDefault();
+        const input = document.getElementById("chat-input");
+        const text = input.value.trim();
+        if (!text) return;
+
+        const container = document.getElementById("chat-messages");
+        
+        // User message
+        const userMsg = document.createElement("div");
+        userMsg.className = "bg-primary text-white p-3 rounded-lg max-w-[85%] ml-auto text-right";
+        userMsg.textContent = text;
+        container.appendChild(userMsg);
+
+        input.value = "";
+        container.scrollTop = container.scrollHeight;
+
+        // Concierge Response Simulation
+        setTimeout(() => {
+            const conciergeMsg = document.createElement("div");
+            conciergeMsg.className = "bg-surface-container-low p-3 rounded-lg text-on-surface-variant max-w-[85%] border border-outline-variant/20";
+            
+            if (text.toLowerCase().includes("dining") || text.toLowerCase().includes("table")) {
+                conciergeMsg.textContent = "Certainly! I have reserved an intimate table for you at our Michelin-starred restaurant at 8:00 PM. Should I prepare a wine pairing recommendation?";
+            } else if (text.toLowerCase().includes("transfer") || text.toLowerCase().includes("airport")) {
+                conciergeMsg.textContent = "I will arrange our private Maybach chauffeur for your arrival. Please confirm your flight number.";
+            } else if (text.toLowerCase().includes("spa")) {
+                conciergeMsg.textContent = "Our Hydrotherapy Thermal Circuit and Signature Rituals are available tomorrow. Would 11:00 AM suit your schedule?";
+            } else {
+                conciergeMsg.textContent = `Thank you for your message regarding "${text}". I am personally looking after this for you right away.`;
+            }
+
+            container.appendChild(conciergeMsg);
+            container.scrollTop = container.scrollHeight;
+        }, 800);
+    }
+
+    // Lightbox & Menu Modals
+    function openMenuModal() {
+        openModal("menu-modal");
+    }
+
+    function openStoryModal() {
+        openModal("story-modal");
+    }
+
+    function openSpaModal(treatment) {
+        openBookingModal();
+    }
+
+    function openLightbox(imgUrl, caption) {
+        document.getElementById("lightbox-img").src = imgUrl;
+        document.getElementById("lightbox-caption").textContent = caption;
+        openModal("lightbox-modal");
+    }
+
+    function openMapModal() {
+        const title = document.getElementById("info-title");
+        const body = document.getElementById("info-body");
+        title.textContent = "Resort Map & Access";
+        body.innerHTML = `
+            <p><strong>Address:</strong> 124 Heritage Boulevard, Mayfair, London W1J 7BR</p>
+            <p><strong>Private Helipad:</strong> Co-ordinates 51.5074° N, 0.1278° W</p>
+            <p><strong>Chauffeur Service:</strong> Direct transfers available from Heathrow (LHR) and Gatwick (LGW).</p>
+            <div class="mt-4 bg-surface-container-high h-48 flex items-center justify-center border border-outline-variant/40 text-on-surface-variant italic">
+                [ Interactive Resort Location Map Loaded ]
+            </div>
+        `;
+        openModal("info-modal");
+    }
+
+    function handleInquirySubmit(e) {
+        e.preventDefault();
+        showToast("Your luxury inquiry has been transmitted to our Guest Relations Manager.");
+        e.target.reset();
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById("toast");
+        const msgEl = document.getElementById("toast-message");
+        msgEl.textContent = message;
+        toast.classList.remove("hidden");
+        setTimeout(() => toast.classList.remove("translate-y-10"), 10);
+        setTimeout(() => {
+            toast.classList.add("translate-y-10");
+            setTimeout(() => toast.classList.add("hidden"), 300);
+        }, 4000);
+    }
+
+    let currentHeroSlide = 1;
+    let heroSliderTimer = null;
+
+    function switchHeroSlide(slideIndex) {
+        currentHeroSlide = slideIndex;
+        for (let i = 1; i <= 3; i++) {
+            const bg = document.getElementById(`hero-bg-${i}`);
+            const dot = document.getElementById(`hero-dot-${i}`);
+            if (bg) {
+                if (i === slideIndex) {
+                    bg.classList.remove("opacity-0");
+                    bg.classList.add("opacity-100");
+                } else {
+                    bg.classList.remove("opacity-100");
+                    bg.classList.add("opacity-0");
+                }
+            }
+            if (dot) {
+                if (i === slideIndex) {
+                    dot.classList.add("scale-125", "bg-white");
+                    dot.classList.remove("bg-white/40");
+                } else {
+                    dot.classList.remove("scale-125", "bg-white");
+                    dot.classList.add("bg-white/40");
+                }
+            }
+        }
+    }
+
+    function autoCycleHeroSlides() {
+        heroSliderTimer = setInterval(() => {
+            let nextSlide = currentHeroSlide + 1;
+            if (nextSlide > 3) nextSlide = 1;
+            switchHeroSlide(nextSlide);
+        }, 7000);
+    }
+
+    // Initialize
+    revealOnScroll();
+    handleNav();
+    autoCycleHeroSlides();
+</script>
+</body>
+</html>
